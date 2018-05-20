@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2018 by Xiaobei-QuQ (http://js.jirengu.com/tivun/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+<style id="jsbin-css">
+html,body,ul,li,p {
+  margin: 0;
+  padding: 0;
+}
+ul,li {
+  list-style: none;
+}
+.clearfix:after {
+  content: '';
+  display: block;;
+  clear: both;
+}
+.ct {
+  position: relative;
+  padding: 10px;
+  margin: 0 auto;
+}
+.ct .item {
+  width: 200px;
+  position: absolute;
+  padding: 0 0 10px 0;
+  box-shadow: 2px 2px 2px  #E8E8E8，-2px -2px 2px #E8E8E8;
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  margin: 10px;
+  transition: all .8s;
+}
+.ct .item img {
+  margin: 12px;
+  width: 176px;
+}
+.ct .item .header {
+  height: 25px;
+  margin: 0 12px;
+  border-bottom: 1px solid #dbdbdb;
+}
+.ct .desp {
+  font-size: 12px;
+  line-height: 1.8;
+  margin: 10px 15px 0;
+  color: #777371;
+}
+#load {
+  
+}
+</style>
+</head>
+<body>
+<div class="ct-waterfall">
+  <ul id="pic-ct" class="ct clearfix">
+    
+  </ul>
+  <div id="load"></div>
+</div>
+<script id="jsbin-javascript">
+var news = {
+    init: function() {
+      let curPage = 1
+      let perPageCount = 30
+      let colSumHeight = []
+      let $target = $('#load')
+      this.colHeightArray = []
+      this.imgWidth = $('#pic-ct item').outerWidth(true)
+      this.colCount = Math.floor($('#pic-ct').width() / this.imgWidth)
+      this.getData()
+      this.bind($target)
+    },
+    bind: function() {
+      let _this = this
+      $(window).on('scroll', function() {
+        if (_this.Exposure(_this.$target)) {
+          _this.getData()
+        }
+      })
+    },
+    getData: function() {
+      var _this = this
+      $.ajax({
+        url: 'http://platform.sina.com.cn/slide/album_tech',
+        type: 'get',
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        data: {
+          app_key: '1271687855',
+          format: 'json',
+          size: 'img',
+          num: _this.perPageCount,
+          page: _this.curPage
+        },
+        success: function(ret) {
+          if (ret.status.code == 0) {
+            ret.data.forEach(function(e) {
+              _this.show(e)
+            })
+          }
+        }
+      })
+    },
+    show: function(item) {
+      var $nodes
+      var nodeString = `
+            <li class="item">
+              <a href="#" class="link">
+                <img src="${item.img_url}" alt="">
+              </a>
+              <h4 class="header">${item.short_name}</h4>
+              <p class="desp">${item.short_intro}</p>
+            </li>
+          `
+      $nodes = $(nodeString)
+      $('#pic-ct').append($nodes)
+      this.waterfall($nodes)
+    },
+    waterfall: function($nodes) {
+      for (let i = 0; i < this.colCount; i++) {
+        this.colHeightArray[i] = 0
+      }
+      var minValue = this.colHeightArray[0]
+      var minIndex = 0
+      for (let i = 0; i < this.colCount; i++) {
+        if (this.colHeightArray[i] < minValue) {
+          minValue = this.colHeightArray[i]
+          minIndex = i
+        }
+      }
+      $nodes.css({
+        left: minIndex * this.imgWidth,
+        top: minValue
+      })
+      this.colHeightArray[minIndex] += $nodes.outerHeight(true)
+  },
+  Exposure: function($el) {
+    console.log('kandaole')
+    var scrollH = $(window).scrollTop()
+    var winH = $(window).height()
+    top = $el.offset().top
+    if (top < winH + scrollH) {
+      consoel.log('true')
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+
+
+news.init()
+
+
+
+
+
+/*
+
+dosth()
+
+function checkShow() {
+  if (isShow($target)) {
+    dosth()
+  }
+}
+
+function isShow($el) {
+
+}
+
+function dosth() {
+
+}
+
+function renderData(items) {
+  console.log(items)
+  var nodeString
+  var $nodes
+  items.forEach(function(item) {
+    nodeString = `
+            <li class="item">
+              <a href="#" class="link">
+                <img src="${item.img_url}" alt="">
+              </a>
+              <h4 class="header">${item.short_name}</h4>
+              <p class="desp">${item.short_intro}</p>
+            </li>
+          `
+    $nodes = $(nodeString)
+    $('#pic-ct').append($nodes)
+    console.log($nodes)
+    return $nodes
+  })
+}
+
+function render($nodes) {
+    var nodeWidth = $nodes.outerWidth(true)
+    var colNum = parseInt($(window).width() / nodeWidth)
+    var colSumHeight = [];
+    if (colSumHeight.length > 0) {
+      for (var i = 0; i < colNm; i++) {
+        colSumHeight.push(0)
+      }
+    }
+
+  }
+  /*
+  Exposure.init($('#load'), function() {
+    consoel.log('show')
+    getData(function(data) {
+      var $nodes = renderData(data);
+      WaterFall.start($nodes);
+    })
+  })
+
+  function getData(callback) {
+      $ajax({
+        url: 'http://platform.sina.com/slide/album_tech',
+        type: 'get',
+        dataType: 'jsonp',
+        data: {
+          app_key: '1271687855',
+          format: 'json',
+          size: 'img',
+          num: perPageCount,
+          page: curPage
+        },
+        success: function() {
+          if (ret.stauts.code == 0) {
+            cur
+          }
+        }
+      })
+    }
+    
+    var Exposure = (function(){
+      function bind($target,handler){
+        $(window).on('scroll',function(){
+          checkShow()
+        })
+        checkShow()
+        function checkShow(){
+          if(isShow($target)){
+            handler()
+          }
+        }
+        function isShow($el){
+          var scrollH = $(window).scrollTop()
+          var winH = $(window).height()
+          top = $el.offset().top()
+          if(top< winH = scrollH){
+            return true;
+          }else{
+            return false;
+          }
+        }
+      }
+      
+      
+      return {
+        bind: bind
+      }
+    })();
+    Exposure.bind($('#load'),dosth);
+    function dosth()
+    */
+</script>
+</body>
+</html>

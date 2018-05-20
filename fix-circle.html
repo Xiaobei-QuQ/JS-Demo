@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>fix-circle</title>
+  <style>
+  .circle{
+     position: fixed;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+  </style>
+</head>
+<body>
+<div class="circle" id="circle"></div>
+<script charset="utf-8">
+  let onMouseDown = (e) => {
+  let {
+    clientX, clientY
+  } = e
+  setPosition(clientX, clientY)
+  document.addEventListener('mousemove', onMouseMove)
+  document.addEventListener('mouseup', onMouseUp)
+}
+let onMouseMove = (e) => {
+  let {
+    clientX, clientY
+  } = e
+  setPosition(clientX, clientY)
+}
+let onMouseUp = () => {
+
+  document.removeEventListener('mousemove', onMouseMove)
+  document.removeEventListener('mouseup', onMouseUp)
+  setPosition(clientX, clientY)
+}
+let setPosition = (x, y) => {
+  if (x < 0) {
+    x = 0
+  }
+  if (x > document.documentElement.clientWidth) {
+    x = document.documentElement.clientWidth
+  }
+  if (y < 0) {
+    y = 0
+  }
+  if (y > document.documentElement.clientHeight) {
+    y = document.documentElement.clientHeight
+  }
+  circle.style.left = `${x}px`
+  circle.style.top = `${y}px`
+}
+
+circle.addEventListener('mousedown', onMouseDown)
+</script>
+</body>
+</html>

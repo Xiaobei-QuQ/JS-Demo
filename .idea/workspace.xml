@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2c2ea23-8c8a-4c20-b6bb-091cba9535dd" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waterfall-sinanews.html" beforeDir="false" afterPath="$PROJECT_DIR$/waterfall-sinanews.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/懒加载.html" beforeDir="false" afterPath="$PROJECT_DIR$/懒加载.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/瀑布流.html" beforeDir="false" afterPath="$PROJECT_DIR$/瀑布流.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="waterfall-sinanews.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="waterfall-sinanews.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/waterfall-sinanews.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+            <state relative-caret-position="504">
+              <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -62,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exposure.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exposure.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Exposure.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -77,8 +75,8 @@
       <list>
         <option value="$PROJECT_DIR$/瀑布流.html" />
         <option value="$PROJECT_DIR$/懒加载.html" />
-        <option value="$PROJECT_DIR$/waterfall-sinanews.html" />
         <option value="$PROJECT_DIR$/news.html" />
+        <option value="$PROJECT_DIR$/waterfall-sinanews.html" />
       </list>
     </option>
   </component>
@@ -146,15 +144,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526909152834</updated>
-      <workItem from="1526909154063" duration="918000" />
+      <workItem from="1526909154063" duration="1458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="918000" />
+    <option name="totallyTimeSpent" value="1458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="223" y="28" width="1462" height="998" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24788135" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -197,13 +196,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/waterfall-sinanews.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/news.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -218,6 +210,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Exposure.html">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/waterfall-sinanews.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="14" column="16" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="16" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

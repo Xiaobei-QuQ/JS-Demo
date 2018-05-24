@@ -1,5 +1,7 @@
 ## Tab组件
 
+s示例：https://xiaobei.store/JS-Demo/js-component-tab/%E7%A4%BA%E4%BE%8B.html
+
 ### 组件功能
 
 实现点击导航栏`tabs-bar`切换不同显示内容`tabs-content`

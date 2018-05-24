@@ -1,6 +1,6 @@
 ## Tab组件
 
-s示例：https://xiaobei.store/JS-Demo/js-component-tab/%E7%A4%BA%E4%BE%8B.html
+示例：https://xiaobei.store/JS-Demo/js-component-tab/%E7%A4%BA%E4%BE%8B.html
 
 ### 组件功能
 

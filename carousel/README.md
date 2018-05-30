@@ -2,7 +2,7 @@
 
 ### 预览链接
 
-https://xiaobei-quq.github.io/JS-Demo/carousel/index.xhtml
+https://xiaobei-quq.github.io/JS-Demo/carousel/index.html
 
 ### 主要功能
 

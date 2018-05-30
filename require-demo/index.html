@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2018 by Xiaobei-QuQ (http://js.jirengu.com/gapey/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<!--
+Created using JS Bin
+http://js.jirengu.com
+
+Copyright (c) 2018 by Xiaobei-QuQ (http://js.jirengu.com/qiguk/4/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src='https://at.alicdn.com/t/font_669403_ckj2tk9r9wo2yb9.js'></script>
+    <meta charset="utf-8">
+    <title>JS Bin</title>
+    <style id="jsbin-css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+        *::before,
+        *::after {
+            box-sizing: border-box; }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box; }
+
+        *::before,
+        *::after {
+            box-sizing: border-box; }
+
+        ol, ul, li {
+            list-style: none; }
+
+        a {
+            text-decoration: none;
+            color: inherit; }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: normal; }
+
+        body {
+            font-size: 12px;
+            line-height: 1.2em;
+        }
+        html body {
+            height: auto;
+        }
+        main {
+            height: calc(100vh - 55px);
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        main > section {
+            display: none;
+            height: 100%;
+            width: 100%;
+            overflow: scroll;
+        }
+        main > section.active {
+            display: block;
+        }
+        .items {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            padding-top: 10px;
+        }
+        .items>a {
+            display: block;
+            display: flex;
+        }
+        .items .cover,
+        .items .cover img {
+            width: 70px;
+        }
+        .items .detail {
+            flex: 1;
+            padding-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+        .items .detail h2 {
+            font-size: 16px;
+        }
+        .items .detail .extra {
+            color: #999;
+            margin-top: 4px;
+        }
+        .items .detail .score {
+            color: #ff5722;
+        }
+        .loading {
+            padding: 5px;
+            text-align: center;
+            display: none;
+        }
+        section .loading svg {
+            display:inline-block;
+            animation: 1s rotate linear infinite;
+        }
+        @keyframes rotate {
+            0% {transform: rotate(0deg);}
+            100% {transform: rotate(360deg);}
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            display: flex;
+            border-top: 1px solid #ccc;
+            padding-top: 5px;
+        }
+        footer div {
+            flex: 1;
+            text-align: center;
+        }
+        footer div svg {
+            margin: 0 auto;
+        }
+        footer div.active {
+            color: #ff5722;
+        }
+        footer div.active svg {
+            fill: #ff5722;
+        }
+        footer div span {
+            display: block;
+            margin-top: 5px;
+        }
+        .icon {
+            width: 2em; height: 2em;
+            vertical-align: -0.15em;
+            fill: #000;;
+            overflow: hidden;
+        }
+        section#search .search-area {
+            width: 100%;
+            padding: 15px 10px 15px 10px;
+            position: relative;
+        }
+        section#search .search-area:after {
+            position: absolute;
+            content: '';
+            display: block;
+            border-bottom: 1px solid #ccc;
+            width: clac(100%-20px);
+            left: 10px;
+            bottom: 0;
+            height: 0;
+        }
+
+        .search-area input {
+            width: calc(100% - 60px);
+            line-height: 30px;
+            font-size: 15px;
+            color: #000;
+            background: #EEEDEF;
+            border: none;
+            padding-left: 8px;
+            border-radius: 2px;
+        }
+        .search-area input:focus {
+            outline: none;
+            border-color: #4b04fc;
+        }
+        .search-area .button {
+            border-radius: 2px;
+            display: inline-block;
+            font-size: 15px;
+            line-height: 30px;
+            padding: 0 10px;
+            margin-left: 10px;
+            background: #FF672F;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="page">
+    <main>
+        <section class='active' id='top250'>
+            <div class='container'>
+
+            </div>
+            <div class="loading">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-loading"></use>
+                </svg>
+            </div>
+        </section>
+
+        <section id='usBox'>
+            <div class="container"></div>
+        </section>
+        <section id='search'>
+            <div class="search-area">
+                <input type="text" placeholder='搜索电影'><span class="button">搜索</span>
+            </div>
+            <div class="search-result">
+                <div class="loading">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-loading"></use>
+                    </svg>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class='active'>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-jiangbei"></use>
+            </svg><span>Top250</span>
+        </div>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-us"></use>
+            </svg><span>北美</span>
+        </div>
+        <div>
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-search"></use>
+            </svg><span>搜索</span>
+        </div>
+    </footer>
+</div>
+<script data-main="src/js/main.js" src="https://cdn.bootcss.com/require.js/2.3.5/require.js"></script>
+</body>
+
+</html>
